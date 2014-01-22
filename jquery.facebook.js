@@ -150,29 +150,9 @@
 			});
 		};
 
-		// Like Box
-		// ---------------------------------------------
-
-		facebook.likebox = function(options) {
-
-		};
-
-		// Share Button
-		// ---------------------------------------------
-
-		facebook.sharebutton = function(options) {
-
-		};
-
 		switch (action) {
 			case "likebutton":
 				facebook.likebutton(options);
-				break;
-			case "likebox":
-				facebook.likebox(options);
-				break;
-			case "sharebutton":
-				facebook.sharebutton(options);
 				break;
 			default:
 				break;
