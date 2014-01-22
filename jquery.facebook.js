@@ -1,7 +1,7 @@
 /*!
- * jQuery Facebook Plugin Library v0.1.0
+ * jQuery Facebook Plugin Library v0.1.1
  * https://github.com/grizzly/jquery.facebook
- * 
+ *
  * Official jQuery Facebook Plugin URL:
  * http://plugins.jquery.com/facebook/
  *
@@ -102,4 +102,63 @@
 
 	};
 
+	$.fn.facebook = function(action, options) {
+
+		var facebook = this;
+
+		// Like Button
+		// ---------------------------------------------
+
+		facebook.likebutton = function(options) {
+
+			var defaults = {
+				share : "true",
+				show_faces : "true",
+				css_class : "",
+				width : 300,
+				layout : "standard",
+				action : "like",
+				url : ""
+			};
+
+			var settings = $.extend({}, defaults, options);
+
+			if (settings.url == "") {
+				settings.url = window.location.href;
+			}
+
+			return this.each(function() {
+				$(this).html('<iframe class="' + settings.css_class + '" src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(settings.url) + '&width=' + settings.width + '&layout=' + settings.layout + '&action=' + settings.action + '&show_faces=' + settings.show_faces + '&share=' + settings.share + '&height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>');
+			});
+		};
+
+		// Like Box
+		// ---------------------------------------------
+
+		facebook.likebox = function(options) {
+
+		};
+
+		// Share Button
+		// ---------------------------------------------
+
+		facebook.sharebutton = function(options) {
+
+		};
+
+		switch (action) {
+			case "likebutton":
+				facebook.likebutton(options);
+				break;
+			case "likebox":
+				facebook.likebox(options);
+				break;
+			case "sharebutton":
+				facebook.sharebutton(options);
+				break;
+			default:
+				break;
+		}
+
+	}
 })(jQuery);

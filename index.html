@@ -10,6 +10,7 @@
 		<script type="text/javascript" src="jquery.facebook.js"></script>
 	</head>
 	<body>
+		<div id="fb-root"></div>
 		<div id="content">
 			<div id="test" class="jqfbloginbutton">
 				<!-- We do not need the Facebook login button at the beginning,
@@ -18,9 +19,10 @@
 				<!-- If not connected to the app, show the Facebook login button (link) -->
 				<a id="jqfbloginlink" href="javascript:;" onclick="facebook.login();" style="display: none;">Login with Facebook</a>
 			</div>
+			<div class="likebutton"></div>
 			<script type="text/javascript">
 				var facebook = $.facebook({
-					appid : 483460708442988,      // <------------------------- PUT YOUR APP ID IN HERE !!!!!!!!!!!!!
+					appid : 483460708442988, // <------------------------- PUT YOUR APP ID IN HERE !!!!!!!!!!!!!
 					locale : "en_EN",
 					scope : "email"
 				});
@@ -44,6 +46,14 @@
 					// best practise is to tell the user why you need the permissions.
 					alert("Please grant the permissions in order to have full access to all the good things in the app!");
 				};
+				$(document).ready(function() {
+					$('.likebutton').facebook("likebutton", {
+						url : "http://grizzly.cc",
+						show_faces : "false",
+						css_class : "absolutebutton",
+						action : "like"
+					});
+				});
 			</script>
 		</div>
 	</body>
