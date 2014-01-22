@@ -4,7 +4,10 @@
     "description": "jQuery wrapper Facebook functionality",
     "keywords": [
         "facebook",
-        "login"
+        "login",
+        "like",
+        "likebutton",
+        "buttons"
     ],
     "version": "0.1.1",
     "author": {
