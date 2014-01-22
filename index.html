@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" />
+		<meta name="keywords" content="jquery, plugin, facebook" />
+		<meta name="description" content="A jQuery plugin to easy use the facebook js" />
+		<title>jQuery Facebook :: Facebook Wrapper Plugin</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+		<script type="text/javascript" src="jquery.facebook.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="test" class="jqfbloginbutton">
+				<!-- We do not need the Facebook login button at the beginning,
+				because it may be possible that the user is allready logged in. So check it first -->
+				<span id="jqfbconnectingtext">Connecting to Facebook, please wait...</span>
+				<!-- If not connected to the app, show the Facebook login button (link) -->
+				<a id="jqfbloginlink" href="javascript:;" onclick="facebook.login();" style="display: none;">Login with Facebook</a>
+			</div>
+			<script type="text/javascript">
+				var facebook = $.facebook({
+					appid : 483460708442988,
+					locale : "en_EN",
+					scope : "email"
+				});
+				facebook.onLoginConnected = function(response) {
+					// the user is logged in and has authenticated your
+					// app. it's now time to send the access token to the server to log the user into your app
+					// after that you would redirect the user to the member area -> window.location = "http:// ...";
+					var uid = response.authResponse.userID;
+					var accessToken = response.authResponse.accessToken;
+					alert("The user " + uid + " is logged in into Facebook AND connected to your app! (access token: " + accessToken + ")");
+				};
+				facebook.onLoginNotAuthorized = facebook.onLoginNotLoggedIn = function() {
+					// the user is logged in to Facebook,
+					// but has not authenticated your app
+					$("#jqfbconnectingtext").hide("fast", function() {
+						$("#jqfbloginlink").show("fast");
+					});
+				};
+				facebook.onLoginCancelled = function() {
+					// the user has canceled the login dialog or has not granted all permissions
+					// best practise is to tell the user why you need the permissions.
+					alert("Please grant the permissions in order to have full access to all the good things in the app!");
+				};
+			</script>
+		</div>
+	</body>
+</html>
