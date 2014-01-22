@@ -1,7 +1,22 @@
 jQuery Facebook-Plugin
 ======================
 
-## Example usage
+## Facebook Like-Button
+
+```js
+
+	$(document).ready(function() {
+		$('.likebutton').facebook("likebutton", {
+			url : "http://jquery.com",
+			action : "like"
+		});
+	});
+
+```
+
+This code will add a Facebook like button to the divs with the class .likebutton
+
+## Facebook Login
 
 ```js
 
