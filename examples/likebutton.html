@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" />
+		<meta name="keywords" content="jquery, plugin, facebook" />
+		<meta name="description" content="A jQuery plugin to easy use the facebook js" />
+		<title>jQuery Facebook :: Examples :: Like Button</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+		<script type="text/javascript" src="../jquery.facebook.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<div class="likebutton"></div>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('.likebutton').facebook("likebutton", {
+						url : "http://grizzly.cc",
+						show_faces : "false",
+						css_class : "absolutebutton",
+						action : "like"
+					});
+				});
+			</script>
+		</div>
+	</body>
+</html>
