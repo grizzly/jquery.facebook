@@ -16,6 +16,9 @@ This code will add a Facebook like button to the divs with the class .likebutton
 
 ### Like-Button-Settings
 
++ `url` _String_ - the url to like
++ `action` _String_ - action type of the button: "like" or "recommend"
+
 ## Facebook Login
 
 ```js
