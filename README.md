@@ -4,17 +4,17 @@ jQuery Facebook-Plugin
 ## Facebook Like-Button
 
 ```js
-
 	$(document).ready(function() {
 		$('.likebutton').facebook("likebutton", {
 			url : "http://jquery.com",
 			action : "like"
 		});
 	});
-
 ```
 
 This code will add a Facebook like button to the divs with the class .likebutton
+
+### Like-Button-Settings
 
 ## Facebook Login
 
@@ -47,8 +47,6 @@ This code will add a Facebook like button to the divs with the class .likebutton
 		};
 
 ```
-
-This code will add a QR-Code to the div '#test'.
 
 ## Settings
 
