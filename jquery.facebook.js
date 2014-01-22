@@ -1,6 +1,9 @@
 /*!
  * jQuery Facebook Plugin Library v0.1.0
  * https://github.com/grizzly/jquery.facebook
+ * 
+ * Official jQuery Facebook Plugin URL:
+ * http://plugins.jquery.com/facebook/
  *
  * Copyright 2011-2014 Grizzly GmbH Graz, Austria
  * http://www.grizzly.cc
