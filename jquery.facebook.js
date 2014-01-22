@@ -127,8 +127,26 @@
 				settings.url = window.location.href;
 			}
 
+			var height = 80;
+			switch (settings.layout) {
+				case "standard":
+					height = 80;
+					break;
+				case "box_count":
+					height = 65;
+					break;
+				case "button_count":
+					height = 21;
+					break;
+				case "button":
+					height = 80;
+					break;
+				default:
+					break;
+			}
+
 			return this.each(function() {
-				$(this).html('<iframe class="' + settings.css_class + '" src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(settings.url) + '&width=' + settings.width + '&layout=' + settings.layout + '&action=' + settings.action + '&show_faces=' + settings.show_faces + '&share=' + settings.share + '&height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>');
+				$(this).html('<iframe class="' + settings.css_class + '" src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(settings.url) + '&width=' + settings.width + '&layout=' + settings.layout + '&action=' + settings.action + '&show_faces=' + settings.show_faces + '&share=' + settings.share + '&height=' + height + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>');
 			});
 		};
 
