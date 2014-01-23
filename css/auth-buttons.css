@@ -1,11 +1,19 @@
-/**
- * Button Object
+/*!
+ * jQuery Facebook Plugin Library CSS
+ * https://github.com/grizzly/jquery.facebook
+ *
+ * Official jQuery Facebook Plugin URL:
+ * http://plugins.jquery.com/facebook/
+ *
+ * Copyright 2011-2014 Grizzly GmbH Graz, Austria
+ * http://www.grizzly.cc
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Last update: 2014-01-23
  */
-/**
- * 1. Corrects inability to style clickable 'input' types in iOS
- * 2. Remove excess padding in IE6/7
- * 3. IE6/7 inline-block hack for native block-level elements
- */
+
 .btn-auth, .btn-auth:visited {
 	position:relative;
 	display:inline-block;
