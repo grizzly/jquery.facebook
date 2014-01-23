@@ -57,14 +57,20 @@
 
 			facebook.onLoginSuccess = function(response) {
 				$("#fbbutton").html('<div class="btn-auth btn-facebook large transparent">Loading App ...</b></div>');
+				// register access token at your's servers backend
 				$.ajax({
 					type : "POST",
 					url : "//example.com/login.php?access_token=" + response.authResponse.accessToken,
 					dataType : "jsonp",
 					success : function(data) {
 						if (data.loggedin == true) {
-							window.location = "https://example.com/memberarea/";
+							// redirect to your member area
+							window.location = "http://grizzly.cc";
 						}
+					},
+					error : function(data) {
+						// in case the login server could not be reached
+						window.location = "http://grizzly.cc";
 					}
 				});
 			};
