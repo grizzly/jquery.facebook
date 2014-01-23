@@ -1,5 +1,5 @@
 /*!
- * jQuery Facebook Plugin Library v0.1.3
+ * jQuery Facebook Plugin Library v0.1.4
  * https://github.com/grizzly/jquery.facebook
  *
  * Official jQuery Facebook Plugin URL:
@@ -27,7 +27,9 @@
 		};
 
 		facebook.settings = $.extend({}, defaults, options);
-		
+
+		facebook.userstatus = "";
+
 		// PUBLIC FUNCTIONS
 		// ---------------------------------------------
 
@@ -43,8 +45,17 @@
 			}, {
 				scope : facebook.settings.scope
 			});
-
 		};
+
+		facebook.logout = function() {
+			// FB.logout will log the user out of both your site and Facebook.
+			// Calling FB.logout will also invalidate the access token that
+			// you have for the user.
+			FB.logout(function(response) {
+				facebook.onLogout(response);
+			});
+		};
+
 		facebook.onLoginConnected = function(response) {
 
 		};
@@ -60,6 +71,9 @@
 		facebook.onLoginCancelled = function() {
 
 		};
+		facebook.onLogout = function(respone) {
+
+		};
 
 		// PRIVATE FUNCTIONS
 		// ---------------------------------------------
@@ -71,6 +85,9 @@
 			$.getScript('//connect.facebook.net/' + facebook.settings.locale + '/all.js', function() {
 				FB.init({
 					appId : facebook.settings.appid,
+				});
+				FB.Event.subscribe('auth.statusChange', function(response) {
+					facebook.userstatus = response.status;
 				});
 				FB.getLoginStatus(updateLoginStatusCallback);
 			});
