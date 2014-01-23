@@ -27,7 +27,7 @@
 		};
 
 		facebook.settings = $.extend({}, defaults, options);
-
+		
 		// PUBLIC FUNCTIONS
 		// ---------------------------------------------
 
@@ -35,7 +35,7 @@
 			FB.login(function(response) {
 				if (response.authResponse) {
 					// connected
-					FB.getLoginStatus(updateLoginStatusCallback);
+					facebook.onLoginSuccess(response);
 				} else {
 					// cancelled
 					facebook.onLoginCancelled();
@@ -45,7 +45,6 @@
 			});
 
 		};
-
 		facebook.onLoginConnected = function(response) {
 
 		};
@@ -53,6 +52,9 @@
 
 		};
 		facebook.onLoginNotLoggedIn = function() {
+
+		};
+		facebook.onLoginSuccess = function(response) {
 
 		};
 		facebook.onLoginCancelled = function() {
