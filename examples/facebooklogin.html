@@ -9,44 +9,74 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.facebook.js"></script>
 		<link rel="stylesheet" href="../css/auth-buttons.css">
+		<link rel="stylesheet" href="facebooklogin.css">
 	</head>
 	<body>
-		<div id="fb-root"></div>
-		<div id="content">
-			<div id="test" class="jqfbloginbutton">
-				<!-- We do not need the Facebook login button at the beginning,
-				because it may be possible that the user is allready logged in. So check it first -->
-				<span id="jqfbconnectingtext">Connecting to Facebook, please wait...</span>
-				<!-- If not connected to the app, show the Facebook login button (link) -->
-				<a id="jqfbloginlink" href="javascript:;" onclick="facebook.login();" style="display: none;">Login with Facebook</a>
+		<div id="facebooklogin" class="alpha90 round">
+			<h2 class="formh2">Login / Register</h2>
+			<input id="terms" type="checkbox" name="terms" value="1" style="margin-top:20px;">
+			I agree to the <a href="https://github.com/grizzly/jquery.facebook" target="_blank">Terms and Conditions</a>!
+			<br>
+			<div id="fbbutton">
+
 			</div>
-			<script type="text/javascript">
-				var facebook = $.facebook({
-					appid : 483460708442988, // <------------------------- PUT YOUR APP ID IN HERE !!!!!!!!!!!!!
-					locale : "en_EN",
-					scope : "email"
-				});
-				facebook.onLoginConnected = function(response) {
-					// the user is logged in and has authenticated your
-					// app. it's now time to send the access token to the server to log the user into your app
-					// after that you would redirect the user to the member area -> window.location = "http:// ...";
-					var uid = response.authResponse.userID;
-					var accessToken = response.authResponse.accessToken;
-					alert("The user " + uid + " is logged in into Facebook AND connected to your app! (access token: " + accessToken + ")");
-				};
-				facebook.onLoginNotAuthorized = facebook.onLoginNotLoggedIn = function() {
-					// the user is logged in to Facebook,
-					// but has not authenticated your app
-					$("#jqfbconnectingtext").hide("fast", function() {
-						$("#jqfbloginlink").show("fast");
-					});
-				};
-				facebook.onLoginCancelled = function() {
-					// the user has canceled the login dialog or has not granted all permissions
-					// best practise is to tell the user why you need the permissions.
-					alert("Please grant the permissions in order to have full access to all the good things in the app!");
-				};
-			</script>
 		</div>
+		<div id="facebooklogin" class="alpha90 round" style="margin-top:20px;">
+			<center>
+				<a href="https://github.com/grizzly/jquery.facebook">Get the source code from GitHub!</a>
+			</center>
+		</div>
+		<script type="text/javascript">
+			$("#fbbutton").html('<div class="btn-auth btn-facebook large transparent">Connecting to <b>Facebook</b></div>');
+
+			var facebook = $.facebook({
+				appid : 483460708442988,
+				locale : "en_EN",
+				scope : "email, user_birthday, user_interests, user_location, publish_actions"
+			});
+
+			facebook.onLoginConnected = function(response) {
+				$("#fbbutton").html('<a class="btn-auth btn-facebook large" href="javascript:;" onclick="doLogin()">Login with <b>Facebook</b></a>');
+			};
+
+			facebook.onLoginNotAuthorized = facebook.onLoginNotLoggedIn = function() {
+				$("#fbbutton").html('<a class="btn-auth btn-facebook large" href="javascript:;" onclick="doLogin();">Login with <b>Facebook</b></a>');
+			};
+
+			facebook.onLoginCancelled = function() {
+				top.location = "https://schlagdenarmin.at/users/login";
+			};
+
+			facebook.onLoginNotAuthorized = function() {
+				$("#fbbutton").html('<a class="btn-auth btn-facebook large" href="javascript:;" onclick="doLogin();">Login with <b>Facebook</b></a>');
+			};
+
+			facebook.onLoginNotLoggedIn = function() {
+				$("#fbbutton").html('<a class="btn-auth btn-facebook large" href="javascript:;" onclick="doLogin();">Login with <b>Facebook</b></a>');
+			};
+
+			facebook.onLoginSuccess = function(response) {
+				$("#fbbutton").html('<div class="btn-auth btn-facebook large transparent">Loading App ...</b></div>');
+				$.ajax({
+					type : "POST",
+					url : "//example.com/login.php?access_token=" + response.authResponse.accessToken,
+					dataType : "jsonp",
+					success : function(data) {
+						if (data.loggedin == true) {
+							window.location = "https://example.com/memberarea/";
+						}
+					}
+				});
+			};
+
+			function doLogin() {
+				if ($('#terms').is(":checked")) {
+					facebook.login();
+				} else {
+					alert("You have to accept the terms and conditions first!")
+				}
+			}
+
+		</script>
 	</body>
 </html>

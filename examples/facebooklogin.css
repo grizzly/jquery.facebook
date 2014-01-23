@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font-family:'Open Sans',sans-serif;
+}
+#facebooklogin, #moreinfo {
+	margin:0 auto;
+	margin-top:20px;
+	width:320px;
+	min-width:320px;
+	padding:50px;
+	border:thin solid #cad3dc;
+}
+#fbbutton {
+	margin-top:20px;
+	margin-bottom:10px;
+}
+.round {
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+}
+.alpha90 {
+	background:rgb(255, 255, 255) transparent;
+	background:rgba(255, 255, 255, 0.9);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#EEFFFFFF, endColorstr=#EEFFFFFF);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#EEFFFFFF, endColorstr=#EEFFFFFF)";
+}
+.transparent {
+	/* IE 5-7 */
+	filter:alpha(opacity=50);
+	/* IE 8 */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	/* FF/Netscape */
+	-moz-opacity:0.5;
+	/* Safari 1.x */
+	-khtml-opacity:0.5;
+	/* Good browsers  (aka chrome ;) ) */
+	opacity:0.5;
+}
