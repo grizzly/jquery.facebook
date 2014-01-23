@@ -1,5 +1,5 @@
 /*!
- * jQuery Facebook Plugin Library v0.1.2
+ * jQuery Facebook Plugin Library v0.1.3
  * https://github.com/grizzly/jquery.facebook
  *
  * Official jQuery Facebook Plugin URL:
