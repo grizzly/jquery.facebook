@@ -59,7 +59,7 @@ This code will add a Facebook like button to the divs with the class .likebutton
 
 ## Demo
 
-Will be added shortly.
+http://jquery.grizzly.cc/facebook/
 
 License
 =======
