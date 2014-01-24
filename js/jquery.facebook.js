@@ -1,5 +1,5 @@
 /*!
- * jQuery Facebook Plugin Library v0.1.4
+ * jQuery Facebook Plugin Library v0.1.5
  * https://github.com/grizzly/jquery.facebook
  *
  * Official jQuery Facebook Plugin URL:
@@ -11,7 +11,7 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- * Last update: 2014-01-23
+ * Last update: 2014-01-24
  */
 
 (function($) {
@@ -28,13 +28,14 @@
 
 		facebook.settings = $.extend({}, defaults, options);
 
-		facebook.userstatus = "";
+		facebook.response = null;
 
 		// PUBLIC FUNCTIONS
 		// ---------------------------------------------
 
 		facebook.login = function() {
 			FB.login(function(response) {
+				facebook.response = response;
 				if (response.authResponse) {
 					// connected
 					facebook.onLoginSuccess(response);
@@ -87,7 +88,7 @@
 					appId : facebook.settings.appid,
 				});
 				FB.Event.subscribe('auth.statusChange', function(response) {
-					facebook.userstatus = response.status;
+					facebook.response = response;
 				});
 				FB.getLoginStatus(updateLoginStatusCallback);
 			});
@@ -95,6 +96,7 @@
 		};
 
 		function updateLoginStatusCallback(response) {
+			facebook.response = response;
 			if (response.status === 'connected') {
 				// the user is logged in and has authenticated your
 				// app, and response.authResponse supplies

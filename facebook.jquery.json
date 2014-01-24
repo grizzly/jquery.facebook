@@ -3,7 +3,7 @@
 	"title": "Facebook",
 	"description": "jQuery wrapper Facebook functionality",
 	"keywords": ["facebook", "login", "like", "likebutton", "buttons"],
-	"version": "0.1.3",
+	"version": "0.1.5",
 	"author": {
 		"name": "Grizzly GmbH",
 		"url": "http://grizzly.cc"

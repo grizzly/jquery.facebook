@@ -78,10 +78,20 @@
 
 			function doLogin() {
 				if ($('#terms').is(":checked")) {
-					if (facebook.userstatus != "connected") {
+					if (facebook.response.status != "connected") {
 						facebook.login();
 					} else {
-						window.location = "//jquery.grizzly.cc/facebook/examples/member.html";
+						$.ajax({
+							type : "POST",
+							url : "//jquery.grizzly.cc/facebook/examples/login.php?access_token=" + facebook.response.authResponse.accessToken,
+							dataType : "json",
+							success : function(data) {
+								if (data.loggedin == true) {
+									// redirect to your member area
+									window.location = "//jquery.grizzly.cc/facebook/examples/member.html";
+								}
+							}
+						});
 					}
 				} else {
 					alert("You have to accept the terms and conditions first!")
