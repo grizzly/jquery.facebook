@@ -35,7 +35,7 @@
 		// ---------------------------------------------
 
 		facebook.login = function() {
-			var scope = getScope();
+			var scopestring = getScope();
 			FB.login(function(response) {
 				facebook.response = response;
 				if (response.authResponse) {
@@ -46,7 +46,7 @@
 					facebook.onLoginCancelled();
 				}
 			}, {
-				scope : facebook.settings.scope
+				scope : scopestring
 			});
 		};
 
