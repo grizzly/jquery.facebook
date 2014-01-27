@@ -1,5 +1,5 @@
 /*!
- * jQuery Facebook Plugin Library v0.1.5
+ * jQuery Facebook Plugin Library v0.1.6
  * https://github.com/grizzly/jquery.facebook
  *
  * Official jQuery Facebook Plugin URL:
@@ -11,7 +11,7 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- * Last update: 2014-01-24
+ * Last update: 2014-01-27
  */
 
 (function($) {
@@ -23,7 +23,8 @@
 		var defaults = {
 			appid : 0,
 			locale : "en_EN",
-			scope : ""
+			mandatory_permissions : {},
+			optional_permissions : {}
 		};
 
 		facebook.settings = $.extend({}, defaults, options);
@@ -34,6 +35,7 @@
 		// ---------------------------------------------
 
 		facebook.login = function() {
+			var scope = getScope();
 			FB.login(function(response) {
 				facebook.response = response;
 				if (response.authResponse) {
@@ -113,6 +115,20 @@
 				facebook.onLoginNotLoggedIn();
 			}
 		};
+
+		function getScope() {
+			var scope = "";
+			if (facebook.settings.mandatory_permissions.length > 0) {
+				scope = facebook.settings.mandatory_permissions.toString();
+			}
+			if (facebook.settings.optional_permissions.length > 0) {
+				if (scope != "") {
+					scope = scope + ",";
+				}
+				scope = scope + facebook.settings.optional_permissions.toString();
+			}
+			return scope;
+		}
 
 		// init
 		// ---------------------------------------------

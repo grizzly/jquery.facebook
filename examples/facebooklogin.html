@@ -37,7 +37,8 @@
 			var facebook = $.facebook({
 				appid : 483460708442988,
 				locale : "en_EN",
-				scope : "email, user_birthday, user_interests, user_location, publish_actions"
+				mandatory_permissions : ["email", "user_birthday", "user_interests", "user_location"],
+				optional_permissions : ["publish_actions"]
 			});
 
 			facebook.onLoginConnected = function(response) {
