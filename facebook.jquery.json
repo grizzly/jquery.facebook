@@ -1,9 +1,9 @@
 {
 	"name": "facebook",
 	"title": "Facebook",
-	"description": "jQuery wrapper Facebook functionality",
+	"description": "jQuery Facebook Plugin enables websites to offer an full ajax based authentication and login/registration process based on the Facebook JavaScript SDK. Beside that, the plugin offers functionality for adding Like buttons and other social widgets to websites easily.",
 	"keywords": ["facebook", "login", "like", "likebutton", "buttons"],
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"author": {
 		"name": "Grizzly GmbH",
 		"url": "http://grizzly.cc"
