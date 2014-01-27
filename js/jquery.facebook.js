@@ -85,7 +85,7 @@
 			});
 			$.getScript('//connect.facebook.net/' + facebook.settings.locale + '/all.js', function() {
 				FB.init({
-					appId : facebook.settings.appid,
+					appId : facebook.settings.appid
 				});
 				FB.Event.subscribe('auth.statusChange', function(response) {
 					facebook.response = response;
