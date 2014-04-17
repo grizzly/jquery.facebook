@@ -11,7 +11,7 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- * Last update: 2014-01-27
+ * Last update: 2014-04-17
  */
 
 (function($) {
@@ -193,7 +193,7 @@
 				break;
 			default:
 				break;
-		}
+		};
 
-	}
+	};
 })(jQuery);
