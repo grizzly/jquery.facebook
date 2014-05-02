@@ -1,5 +1,5 @@
 /*!
- * jQuery Facebook Plugin Library v0.1.8
+ * jQuery Facebook Plugin Library v0.2.0
  * https://github.com/grizzly/jquery.facebook
  *
  * Official jQuery Facebook Plugin URL:
@@ -11,7 +11,7 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- * Last update: 2014-04-17
+ * Last update: 2014-05-02
  */
 
 (function($) {
@@ -22,7 +22,7 @@
 
 		var defaults = {
 			appid : 0,
-			apiversion : '2.0', 
+			apiversion : 'v2.0', 
 			locale : "en_EN",
 			mandatory_permissions : {},
 			optional_permissions : {}
@@ -86,7 +86,7 @@
 			$.ajaxSetup({
 				cache : true
 			});
-			$.getScript('//connect.facebook.net/' + facebook.settings.locale + '/all.js', function() {
+			$.getScript('//connect.facebook.net/' + facebook.settings.locale + '/sdk.js', function() {
 				FB.init({
 					appId : facebook.settings.appid,
 					version : facebook.settings.apiversion
