@@ -22,6 +22,7 @@
 
 		var defaults = {
 			appid : 0,
+			apiversion : '2.0', 
 			locale : "en_EN",
 			mandatory_permissions : {},
 			optional_permissions : {}
@@ -87,7 +88,8 @@
 			});
 			$.getScript('//connect.facebook.net/' + facebook.settings.locale + '/all.js', function() {
 				FB.init({
-					appId : facebook.settings.appid
+					appId : facebook.settings.appid,
+					version : facebook.settings.apiversion
 				});
 				FB.Event.subscribe('auth.statusChange', function(response) {
 					facebook.response = response;
