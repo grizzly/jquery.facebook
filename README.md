@@ -1,6 +1,14 @@
 jQuery Facebook-Plugin
 ======================
 
+## Installation
+
+Include the script 
+
+```js
+<script type="text/javascript" src="//jquery.fbapi.net/jquery.facebook.latest.js"></script>
+```
+
 ## Facebook Like-Button
 
 ```js
