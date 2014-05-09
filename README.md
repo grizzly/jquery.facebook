@@ -9,6 +9,8 @@ Include the script
 <script type="text/javascript" src="//jquery.fbapi.net/jquery.facebook.latest.js"></script>
 ```
 
+or: use the source files from this git repository.
+
 ## Facebook Like-Button
 
 ```js
