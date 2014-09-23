@@ -1,11 +1,11 @@
 {
 	"name": "facebook",
-	"title": "Facebook",
+	"title": "Facebook Login/Like/Share Plugin",
 	"description": "jQuery Facebook Plugin enables websites to offer an full ajax based authentication and login/registration process based on the Facebook JavaScript SDK. Beside that, the plugin offers functionality for adding Like buttons and other social widgets to websites easily.",
-	"keywords": ["facebook", "login", "like", "likebutton", "buttons"],
-	"version": "0.2.1",
+	"keywords": ["facebook", "login", "like", "share", "likebutton", "buttons", "social"],
+	"version": "0.2.2",
 	"author": {
-		"name": "Grizzly GmbH",
+		"name": "Grizzly New Technologies GmbH",
 		"url": "http://grizzly.cc"
 	},
 	"maintainers": [

@@ -1,5 +1,5 @@
 /*!
- * jQuery Facebook Plugin Library v0.2.1
+ * jQuery Facebook Plugin Library v0.2.2
  * https://github.com/grizzly/jquery.facebook
  *
  * Official jQuery Facebook Plugin URL:
@@ -11,7 +11,7 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- * Last update: 2014-05-09
+ * Last update: 2014-09-23
  */
 
 (function($) {
