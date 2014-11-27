@@ -186,7 +186,7 @@
 			}
 
 			return this.each(function() {
-				$(this).html('<iframe class="' + settings.css_class + '" src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(settings.url) + '&width=' + settings.width + '&layout=' + settings.layout + '&action=' + settings.action + '&show_faces=' + settings.show_faces + '&share=' + settings.share + '&height=' + height + '&locale=' + settings.locale + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>');
+				$(this).html('<iframe class="' + settings.css_class + '" src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(settings.url) + '&width=' + settings.width + '&layout=' + settings.layout + '&action=' + settings.action + '&show_faces=' + settings.show_faces + '&share=' + settings.share + '&height=' + height + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>');
 			});
 		};
 
